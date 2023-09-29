@@ -1,53 +1,14 @@
-concrete MedicalPrescriptionEng of MedicalPrescription = open StringOper in {
-  lincat
-    Medicine = {s : Str};
-    Dosage = {s : Number => Str};
-    Duration = {s : Str};
-    PatientInfo = {s : Str};
-    DoctorInfo = {s : Str};
-    PrescriptionDate = {s : Str};
-    PharmacyInfo = {s : Str};
-    Instructions = {s : Str};
-
+concrete MedicalPrescriptionEng of MedicalPrescription = open Prelude in {
+  lincat 
+    MedName, MedQuant, Dosage, NumberOfDays = SS ; 
   lin
-    prescribe med dosage duration patient doctor = {
-      s = "Prescribe " ++ med.s ++ " " ++ dosage.s ++ " for " ++ duration.s ++ " for " ++ patient.s ++ " by Dr. " ++ doctor.s ++ ".";
-    };
+    Prescribe med days = {s = "Prescribe " ++ med.s ++ " for " ++ days.s ++ ".";};
+    
+    Medication quant name = {s = quant.s ++ " of " ++ name.s };
 
-    Pill = {
-      s = Table{
-        Sg => "Pill";
-        Pl => "Pills";
-      }
-    };
-
-  oper
-    Tylenol = {s = "Tylenol"};
-    Amoxicilin = {s = "Amoxicilin"};
-    OnePill = {s : Str ; n : Number};
-    Every8Hours = {s = "Every 8 hours"};
-    Every6Hours = {s = "Every 6 hours"};
-    DrBrvn = {s = "Dr. Brvn"};
-    FiveDays = {s = "5 days"};   
-    SevenDays = {s = "7 days"};  
-    JohnDoe = {s = "John Doe"};  
-
-    Dosage_Pl : Str -> {s : Number => Str} = \pill -> {
-      s = table {
-        Sg => pill ;
-        Pl => pill + "s"
-        }
-      } ;
-    OnePill = Pill {s = "1 pill" ; n = Sg};
-    TwoPills = Pill {s = "2 pills" ; n = Pl};
-
-  param
-    Number = Sg | Pl ;
+    Tylenol = ss "tylenol";
+    Amoxicilin = ss "amoxicilin";
+    Pill = ss "one pill";
+    Q6H = ss "every 6 Hours";
+    FiveDays = ss "5 Days";
 }
-
-
-{-
-> i -retain MedicalPrescriptionEng.gf
-> generate_random (prescribe Tylenol OnePill Every8Hours FiveDays JohnDoe DrBrvn)
-
--}
