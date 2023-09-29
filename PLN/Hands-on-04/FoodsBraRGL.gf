@@ -13,8 +13,7 @@ Quality = AP ;
 
 lin
 Is item quality = mkPhr (mkCl item quality) ;
-NIs item quality =
-mkPhr (mkS negativePol (mkCl item quality)) ;
+NIs item quality = mkPhr (mkS negativePol (mkCl item quality)) ;
 
 This kind = mkNP (mkDet this_Quant singularNum) kind ;
 That kind = mkNP (mkDet that_Quant singularNum) kind ;
