@@ -1,0 +1,57 @@
+graph {
+edge[style="solid"]; node[shape="plaintext"]; 
+subgraph {rank=same;
+  n5[label="Prescription"]; 
+}
+ 
+subgraph {rank=same;
+  n2[label="Medication"]; 
+  n3[label="Dosage"]; 
+  n4[label="NumberOfDays"]; 
+  edge[style="invis"]; 
+  n2  --  n3  --  n4 ;
+}
+n5 -- n2;
+n5 -- n3;
+n5 -- n4;
+ 
+subgraph {rank=same;
+  n0[label="MedQuant"]; 
+  n1[label="MedName"]; 
+  edge[style="invis"]; 
+  n0  --  n1 ;
+}
+n2 -- n0;
+n2 -- n1;
+ 
+edge[style="dashed"]; node[shape="plaintext"]; 
+subgraph {rank=same;
+  n100000[label="Prescribe"]; 
+  n100001[label="one"]; 
+  n100002[label="pill"]; 
+  n100003[label="of"]; 
+  n100004[label="Tylenol"]; 
+  n100005[label="every"]; 
+  n100006[label="8"]; 
+  n100007[label="Hours"]; 
+  n100008[label="for"]; 
+  n100009[label="5"]; 
+  n100010[label="Days"]; 
+  n100011[label="."]; 
+  edge[style="invis"]; 
+  n100000  --  n100001  --  n100002  --  n100003  --  n100004  --  n100005  --  n100006  --  n100007  --  n100008  --  n100009  --  n100010  --  n100011 ;
+}
+n5 -- n100000;
+n0 -- n100001;
+n0 -- n100002;
+n2 -- n100003;
+n1 -- n100004;
+n3 -- n100005;
+n3 -- n100006;
+n3 -- n100007;
+n5 -- n100008;
+n4 -- n100009;
+n4 -- n100010;
+n5 -- n100011;
+ 
+}

@@ -1,0 +1,13 @@
+graph {
+n0[label = "Prescribe : Prescription", style = "solid", shape = "plaintext"] ;
+n0_0[label = "Medicine : Medication", style = "solid", shape = "plaintext"] ;
+n0 -- n0_0 [style = "solid"];
+n0_0_0[label = "OnePill : MedQuant", style = "solid", shape = "plaintext"] ;
+n0_0 -- n0_0_0 [style = "solid"];
+n1_0_0[label = "Tylenol : MedName", style = "solid", shape = "plaintext"] ;
+n0_0 -- n1_0_0 [style = "solid"];
+n1_0[label = "Q8H : Dosage", style = "solid", shape = "plaintext"] ;
+n0 -- n1_0 [style = "solid"];
+n2_0[label = "FiveDays : NumberOfDays", style = "solid", shape = "plaintext"] ;
+n0 -- n2_0 [style = "solid"];
+}
